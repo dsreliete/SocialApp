@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Social App</string>
+    <string name="action_settings">Logout</string>
+    <string name="facebook_app_id">1094645277223017</string>
+</resources>
