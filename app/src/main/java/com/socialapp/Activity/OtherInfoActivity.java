@@ -61,19 +61,32 @@ public class OtherInfoActivity extends AppCompatActivity {
         }
 
 
-        Spannable religion = setSpan("Religião: ");
-        Spannable relation = setSpan("Relacionamento: ");
-        Spannable work = setSpan("Trabalho: ");
-        Spannable education = setSpan("Educação: ");
-        Spannable bio = setSpan("Sobre você: ");
+        Spannable religion = setSpan(getResources().getString(R.string.religion));
+        Spannable relation = setSpan(getResources().getString(R.string.relation_ship));
+        Spannable work = setSpan(getResources().getString(R.string.work));
+        Spannable education = setSpan(getResources().getString(R.string.education));
+        Spannable bio = setSpan(getResources().getString(R.string.about_you));
 
 
         if (person != null){
-            religionTextView.setText(religion + person.getReligion());
-            relationTextView.setText(relation + person.getRelationShip());
-            workTextView.setText(work + person.getEmployer() );
-            educationTextView.setText(education + person.getSchool());
-            bioTextView.setText(bio + person.getBio());
+            if (person.getReligion() != null)
+                religionTextView.setText(religion + person.getReligion());
+
+
+            if (person.getRelationShip() != null)
+                relationTextView.setText(relation + person.getRelationShip());
+
+
+            if (person.getEmployer() != null)
+                workTextView.setText(work + person.getEmployer());
+
+
+            if (person.getSchool() != null)
+                educationTextView.setText(education + person.getSchool());
+
+
+            if (person.getBio() != null)
+                bioTextView.setText(bio + person.getBio());
         }
 
 

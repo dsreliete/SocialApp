@@ -68,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancel() {
-                createToast("login was canceled. Try again");
+                createToast(getResources().getString(R.string.canceled));
             }
 
             @Override
             public void onError(FacebookException error) {
-                createToast("Can't login. Try Again");
+                createToast(getResources().getString(R.string.error));
             }
         });
     }

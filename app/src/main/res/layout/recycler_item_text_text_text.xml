@@ -16,13 +16,6 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 
-    <ImageView
-        android:id="@+id/image_timeline"
-        android:layout_width="500dp"
-        android:layout_height="wrap_content"
-        android:visibility="gone"/>
-
-
         <TextView
             android:text="date"
             android:id="@+id/text_date"
@@ -30,7 +23,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_below="@id/image_timeline"
-            android:visibility="gone"/>
+            />
 
     <TextView
         android:text="message ou story"
@@ -39,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_date"
-        android:visibility="gone"/>
+        />
 
     <TextView
         android:text="description"
@@ -48,16 +41,18 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_below="@id/text_message"
-        android:visibility="gone"/>
+        />
 
+        <TextView
+            android:text="story"
+            android:id="@+id/text_story"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_below="@id/text_message"
+            android:layout_marginBottom="16dp"
+            />
 
-    <View
-        android:id="@+id/line"
-        android:background="@color/grey_light"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/text_description"
-        android:visibility="gone"/>
 
 
     </RelativeLayout>

@@ -4,7 +4,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -108,7 +111,7 @@ public class Timeline {
                         timeline.picture = jsonObject.getString("full_picture");
 
                     if (jsonObject.has("created_time"))
-                        timeline.dayHour = jsonObject.getString("created_time");
+                        timeline.dayHour = getFormattedDay(jsonObject.getString("created_time"));
 
                     if (url != null)
                         timeline.url = url;
@@ -116,8 +119,6 @@ public class Timeline {
                     timelineList.add(timeline);
                 }
             }
-
-
             return timelineList;
 
         } catch (JSONException e) {
@@ -127,6 +128,22 @@ public class Timeline {
         return null;
 
     }
+
+    private static String getFormattedDay(String created_time) {
+        String day = created_time.replace("T", "");
+        Date date;
+        SimpleDateFormat dateInFormat = new SimpleDateFormat("yyyy-MM-ddHH:mm:ssz");
+        SimpleDateFormat dateOutFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        try {
+
+            date = dateInFormat.parse(day);
+            return dateOutFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
     @Override
     public String toString() {
